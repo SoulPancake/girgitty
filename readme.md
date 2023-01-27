@@ -1,4 +1,7 @@
+
 # GirGitty
+![image](https://user-images.githubusercontent.com/70265851/215025499-220f394c-c3bb-46e5-a802-68a96668c976.png)
+
 A simple version control system for tracking and logging file changes in Go.
 
 ## Features
