@@ -1,4 +1,5 @@
-# GirGitty
+# ![GirGitty](https://user-images.githubusercontent.com/70265851/215024982-659824ba-a3dc-4c1f-9d66-152071e08f87.png)
+GirGitty
 A simple version control system for tracking and logging file changes in Go.
 
 ## Features
