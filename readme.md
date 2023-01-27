@@ -61,6 +61,8 @@ This command will start monitoring test.txt file. If the file is modified, renam
 - Ability to create a new version of the file with the commit message.
 - Easy integration with existing projects.
 
+In the future, we plan to integrate GirGitty with Google Drive to allow for seamless version control of files stored on the cloud platform. This will enable users to track changes made to their files and easily revert to previous versions if needed. Additionally, the ability to access and manage versions of files from anywhere with an internet connection will greatly enhance the usability of the tool. We also plan to integrate the commit functionality with Google Drive API, so that users can easily track the changes made in the file and also the user who made the changes. This will also help in collaboration for the same file with different users.
+
 ## Contribution
 We welcome contributions to this project. If you are interested in contributing, please fork the repository and open a pull request.
 
