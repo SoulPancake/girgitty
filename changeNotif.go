@@ -7,7 +7,7 @@ import (
 	"time"
 )
 
-func listen() {
+func main() {
 	if len(os.Args) < 2 {
 		fmt.Println("Please provide an input file name")
 		return
@@ -54,8 +54,44 @@ func listen() {
 					fmt.Println("Error writing state file:", err)
 				}
 			}
+			if event.Op&fsnotify.Create == fsnotify.Create {
+				// Append the contents of the input file and timestamp to the state file
+				state, err := ioutil.ReadFile("state.txt")
+				if err != nil {
+					fmt.Println("Error reading state file:", err)
+				}
+				state = append(state, []byte("\n\nFile: "+inputFile+" Action: create"+" Timestamp: "+timestamp+"\n")...)
+				err = ioutil.WriteFile("state.txt", state, 0644)
+				if err != nil {
+					fmt.Println("Error writing state file:", err)
+				}
+			}
+			if event.Op&fsnotify.Rename == fsnotify.Rename {
+				// Append the contents of the input file and timestamp to the state file
+				state, err := ioutil.ReadFile("state.txt")
+				if err != nil {
+					fmt.Println("Error reading state file:", err)
+				}
+				state = append(state, []byte("\n\nFile: "+inputFile+" Action: rename"+" Timestamp: "+timestamp+"\n")...)
+				err = ioutil.WriteFile("state.txt", state, 0644)
+				if err != nil {
+					fmt.Println("Error writing state file:", err)
+				}
+			}
+			if event.Op&fsnotify.Remove == fsnotify.Remove {
+				// Append the contents of the input file and timestamp to the state file
+				state, err := ioutil.ReadFile("state.txt")
+				if err != nil {
+					fmt.Println("Error reading state file:", err)
+				}
+				state = append(state, []byte("\n\nFile: "+inputFile+" Action: delete"+" Timestamp: "+timestamp+"\n")...)
+				err = ioutil.WriteFile("state.txt", state, 0644)
+				if err != nil {
+					fmt.Println("Error writing state file:", err)
+				}
+			}
 		case err := <-watcher.Errors:
-			fmt.Println("Error from fsnotify:", err)
+			fmt.Println("Error:", err)
 		}
 	}
 }
