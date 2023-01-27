@@ -10,6 +10,7 @@ A simple version control system for tracking and logging file changes in Go.
 - CLI for easy integration with existing programs
 - Utilizes fsnotify for efficient file monitoring
 
+
 ## Installation
 1. Download the source code from this repository
 2. Run `go build` to build the program
@@ -47,6 +48,18 @@ You can also integrate this functionality into the main program by calling this 
 `go run commit.go <input_file> <version>`
 
 This command will start monitoring test.txt file. If the file is modified, renamed, deleted or created, it will update the state.txt file with the respective timestamp and action.
+
+# Progress Features
+- Track file changes, including create, update, rename, and delete events.
+- Log file changes with timestamps and version information.
+- CLI app for easy access to the functionalities.
+- Option to have different versions for the same file.
+- Logging for different versions.
+- Commit functionality in a separate file.
+- API endpoints to use the functionalities over a Google Drive folder.
+- Versioning used for the Google Drive API.
+- Ability to create a new version of the file with the commit message.
+- Easy integration with existing projects.
 
 ## Contribution
 We welcome contributions to this project. If you are interested in contributing, please fork the repository and open a pull request.
